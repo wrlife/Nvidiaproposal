@@ -1,0 +1,77 @@
+\begin{thebibliography}{10}
+
+\bibitem{zhao16}
+Zhao, Q., Price, J., Pizer, S., Niethammer, M., Alterovitz, R., Rosenman, J.:
+\newblock The endoscopogram: a 3{D} model reconstructed from endoscopic video
+  frames.
+\newblock In: to Appear in MICCAI. (2016)
+
+\bibitem{rui16}
+Rui, W., et. al.:
+\newblock Improving 3{D} surface reconstruction from endoscopic video via
+  fusion and refined reflectance modeling.
+\newblock In: under review. (2016)
+
+\bibitem{price16}
+Price, J., et. al.:
+\newblock Shape from motion and shading in uncontrolled environments.
+\newblock In: Under review. Preliminary draft available at http://cs.unc.edu/.
+  (2016)
+
+\bibitem{armin2015}
+Armin, M., Visser, H., Chetty, G., Dumas, C., Conlan, D., Grimpen, F., Salvado,
+  O.:
+\newblock Visibility map: A new method in evaluation quality of optical
+  colonoscopy.
+\newblock In: MICCAI. (2015)  396--404
+
+\bibitem{hong2014}
+Hong, D., Tavanapong, W., Wong, J., Oh, J., de~Groen, P.C.:
+\newblock 3{D} reconstruction of virtual colon structures from colonoscopy
+  images.
+\newblock Computerized Medical Imaging and Graphics \textbf{38}(1) (2014)
+  22--23
+
+\bibitem{MH2013}
+Maier-Hein, L., Mountney, P., Bartoli, A., Elhawary, H., Elson, D., Groch, A.,
+  Kolb, A., Rodrigues, M., Sorger, J., Speidel, S., Stoyanov, D.:
+\newblock Optical techniques for 3{D} surface reconstruction in
+  computer-assisted laparoscopic surgery.
+\newblock Medical Image Analysis \textbf{17}(8) (2013)  974--996
+
+\bibitem{ahmed2006}
+Ahmed, A.H., Farag, A.A.:
+\newblock A new formulation for shape from shading for non-lambertian surfaces.
+\newblock In: CVPR. (2006)
+
+\bibitem{schonberger2016}
+Sch{\"o}nberger, J.L., Frahm, J.M.:
+\newblock Structure-from-motion revisited.
+\newblock In: CVPR. (2016)
+
+\bibitem{liu2015}
+Liu, F., Shen, C., Lin, G.:
+\newblock Deep convolutional neural fields for depth estimation from a single
+  image.
+\newblock In: CVPR. (2015)  5162--5170
+
+\bibitem{rematas2016}
+Rematas, K., Ritschel, T., Fritz, M., Gavves, E., Tuytelaars, T.:
+\newblock Deep reﬂectance maps.
+\newblock In: CVPR. (2016)
+
+\bibitem{zhao2014}
+Zhao, Q., Pizer, S., Niethammer, M., Rosenman, J.:
+\newblock Geometric-feature-based spectral graph matching in pharyngeal surface
+  registration.
+\newblock In Golland, P., Hata, N., Barillot, C., Hornegger, J., Howe, R.,
+  eds.: MICCAI. Volume 8673 of LNCS., Springer International Publishing (2014)
+  259--266
+
+\bibitem{zhao2015}
+Zhao, Q., Price, J.T., Pizer, S., Niethammer, M., Alterovitz, R., Rosenman, J.:
+\newblock Surface registration in the presence of topology changes and missing
+  patches.
+\newblock In: Medical Image Understanding and Analysis. (2015)  8--13
+
+\end{thebibliography}
