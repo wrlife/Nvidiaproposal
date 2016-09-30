@@ -8,16 +8,16 @@
 
 \begin{document}
 
-\title{Deep Networks for 3D Reconstruction from Endoscopic Video}
+\title{Deep Networks for 3D Reconstruction from Endoscopic Video An Application to NVIDIA for a GPU}
 
 \author{Stephen Pizer\inst{1,2}, Julian Rosenman\inst{2,1}}
 \institute{Computer Science, University of North Carolina at Chapel Hill, USA \and Radiation Oncology, University of North Carolina at Chapel Hill, USA}
 \maketitle
 
 \section{Motivation}
-Endoscopy is an in-body examination procedure that enables high-resolution optical visualization of tissue texture and is a critical step in many clinical workflows. However, the use of endoscopy is still highly limited in the context of radiation therapy treatment planning due to the fact that an endoscopic video does not provide explicit 3D spatial information, thus making it difficult to use for tumor localization. In addition, due to the large amount of redundant information and lack of an efficient method to do video-based comparison, endoscopic video is almost never used for review.
+Endoscopy is an in-body examination procedure that enables high-resolution optical visualization of tissue texture and is a critical step in many clinical workflows. However, the use of endoscopy is still highly limited in the context of radiation therapy treatment planning due to the fact that an endoscopic video does not provide explicit 3D spatial information, thus making it difficult to use for tumor localization. In addition, due to the large amount of redundant information, lack of an efficient method to do video-based comparison, and most importantly unable to provide a full view of the target object, endoscopic video is almost never used for review.
 
-Our group has proposed a pipeline in \cite{zhao16} that can reconstruct a textured 3D surface model, which we call an \textit{endoscopogram}, from multiple 2D endoscopic video frames. The model provides (1) complete 3D anatomical geometry, which facilitates tumor localization; (2) efficient visualization and comparison within and between patients; and (3) the opportunity to register endoscopy data with other modalities, such as CT, thereby enabling transfer of the tumor information into other spaces for treatment planning. We have applied this pipeline on nasopharyngoscopic and colonoscopic videos \cite{zhao16,rui16} and showed promising initial results. Preliminary clinical trials also haven shown that tumor location based on the 3D endoscopogram model can achieve within-3mm error on average.
+Our group has proposed a pipeline in \cite{zhao16} that can reconstruct a textured 3D surface model, which we call an \textit{endoscopogram}, from multiple 2D endoscopic video frames. The model provides (1) complete 3D anatomical geometry, which facilitates tumor localization; (2) efficient visualization, which gives a full overview of the scoped area, and comparison within and between patients; and (3) the opportunity to register endoscopy data with other modalities, such as CT, thereby enabling transfer of the tumor information into other spaces for treatment planning. We have applied this pipeline on nasopharyngoscopic and colonoscopic videos \cite{zhao16,rui16} and showed promising initial results. Preliminary clinical trials also haven shown that tumor location based on the 3D endoscopogram model can achieve within-3mm error on average. We are about to have a clinical evaluation which needs to produce many endoscopograms.
 
 \begin{figure}[!b]
   \centering
@@ -27,7 +27,9 @@ Our group has proposed a pipeline in \cite{zhao16} that can reconstruct a textur
   %\caption{Registration error of 24 synthetic deformations.}
 \end{figure}
 
-Our pipeline can be generally divided into two steps. First, the \textit{reconstruction} step generates for each 2D frame $\mathcal{F}_i$ a 3D reconstruction $\mathcal{R}_i$ by our novel SfMS (shape-from-Motion-and-Shading) method \cite{price16}. Then the \textit{fusion} step fuses all the single-frame reconstructions $\{\mathcal{R}_i\}$ into a single geometry $\mathcal{R}$ \cite{zhao16}. Therefore, a robust 3D reconstruction method is required in the first step, and it plays an extremely essential role in producing an accurate final result since it determines the amount of reconstruction error that is propagated into the fusion step.
+Our pipeline can be generally divided into two steps. First, the \textit{reconstruction} step generates for each 2D frame $\mathcal{F}_i$ a 3D reconstruction $\mathcal{R}_i$ by our novel SfMS (shape-from-Motion-and-Shading) method \cite{price16}. Then the \textit{fusion} step fuses all the single-frame reconstructions $\{\mathcal{R}_i\}$ into a single geometry $\mathcal{R}$ \cite{zhao16}. Therefore, a robust 3D reconstruction method is required in the first step, and then an effective way to simutaneously apply the method to many frames of the endoscopic video is also needed.
+
+%and it plays an extremely essential role in producing an accurate final result since it determines the amount of reconstruction error that is propagated into the fusion step.
 
 \section{Existing Work and Limitations}
 
@@ -76,8 +78,10 @@ We successfully applied our depth estimation network to 1D examples, where we cr
 Deep neural network is very powerful because of its millions of hidden parameters, which gives it the ability to model almost any complex problems. However, such network also requires a huge number of training samples. For example, the ImageNet[ref] dataset that many object classification network used for training contains millions of labeled images. However, without parallel computing power, it is almost impossible to train a deep neural network on such huge dataset. 
 
 
-
 Even for our 1D dataset (50K 1D training images), it takes 968.83 seconds to train using CPU only, whereas it takes only 64.09 seconds to train using a NVIDIA GPU.  Therefore, it will be extremely time consuming if we train the network on 2D images using CPU. All in all, a cutting-edge NVIDIA’s GPU will be a key component to push our research work forward because its parallel computation power will allow us to train our deep depth estimation network on large medical image datasets.
+
+Besides this deep depth estimation project, NVIDIA's GPU is very important to us in many more aspects such as: 1. Clinical study. We need to reconstruct many endoscopograms during clinical study and efficiency is the first priority in such application.
+2. General research. The computing power of NVIDIA's GPU will allow us to try out more complex methods and apply our existing methods to harder problems such as 3D reconstruction of colonoscopy, which has a lot more frames to be reconstructed.
 
 
 
