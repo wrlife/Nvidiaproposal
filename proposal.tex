@@ -59,16 +59,27 @@ Recent advances in computer vision focuses on applying machine learning techniqu
 
 Estimating depth from a 2D image is a pixel-wise labeling problem that we need to assign a depth value to each pixel. Therefore,we follow the design of the fully convolutional neural network (FCN)[ref], which is a network used for pixel-wise segmentation, to create our deep depth estimation network. Figure 3 shows our current network design. In this network, 5 sets of convolutions and poolings are performed that downsample the image to 1/16 of its original size, then followed by two fully convolution layers to generate spacial invariant features. Afterwards, three deconvolution layers are used to upsample the output to original image size, since we are doing a per pixel-wise estimation. Finally, we use a regression type loss function to measure the difference between estimated and groundtruth depth values. Stochastic gradient descent is used to perform back propagation and update hidden parameters in the network. 
 
+\begin{figure}[!b]
+  \centering
+  % Requires \usepackage{graphicx}
+  \subfigure[]{\includegraphics[height=2cm]{figures/sfms_result}}
+  \subfigure[]{\includegraphics[height=2cm]{figures/sfms_result}}
+  \subfigure[]{\includegraphics[height=2cm]{figures/sfms_result}}
+  \caption{(a) A reconstruction result produced by our SfMS method. (b)(c) ***** You might want to put some results that can show our current limitation}
+  \label{fig:sfms_result}
+\end{figure}
+
 We successfully applied our depth estimation network to 1D examples, where we create a 1D surface as our target object and generated a set of 1D intensity images by observing the 1D surface  from different angles and distances. Figure 4 illustrates our 1D synthetic data. The input to the network are intensity images and the output are their estimated depth maps. Figure 5 shows the estimated 1D depth maps together with the corresponding groundtruth depth maps.
 
 \section{Importance of NVIDIA GPU}
 
-Deep neural network is very powerful because its millions of hidden parameters gives it the ability to model almost any complex problems. However, such network also requires a huge number of training samples. For example, the ImageNet dataset that many object classification network used for training contains millions of labeled images. However, without parallel computing power, it is almost impossible to train a deep neural network on such huge dataset. 
-
-As shown in table 1, even for our 1D dataset (50K 1D training images), it takes ** time to train using CPU only, whereas it takes only ** time to train using a NVIDIA GPU.  Therefore, it will be extremely time consuming if we train the network on 2D images using CPU. All in all, a cutting-edge NVIDIA’s GPU will be a key component to push our research work forward because its parallel computation power will allow us to train our deep depth estimation network on large medical image datasets.
+Deep neural network is very powerful because of its millions of hidden parameters, which gives it the ability to model almost any complex problems. However, such network also requires a huge number of training samples. For example, the ImageNet[ref] dataset that many object classification network used for training contains millions of labeled images. However, without parallel computing power, it is almost impossible to train a deep neural network on such huge dataset. 
 
 
- 
+
+Even for our 1D dataset (50K 1D training images), it takes 968.83 seconds to train using CPU only, whereas it takes only 64.09 seconds to train using a NVIDIA GPU.  Therefore, it will be extremely time consuming if we train the network on 2D images using CPU. All in all, a cutting-edge NVIDIA’s GPU will be a key component to push our research work forward because its parallel computation power will allow us to train our deep depth estimation network on large medical image datasets.
+
+
 
 \textbf{Other Related Work Published by Our Group}
 See references \cite{zhao2014,zhao2015}
